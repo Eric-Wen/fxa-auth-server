@@ -251,6 +251,47 @@ var conf = convict({
       format: String,
       default: undefined,
       env: 'SES_CONFIGURATION_SET'
+    },
+    bounces: {
+      complaint: {
+        duration: {
+          doc: 'Time until a complaint is no longer counted',
+          default: '1 year',
+          format: 'duration',
+          env: 'BOUNCES_COMPLAINT_DURATION'
+        },
+        max: {
+          doc: 'Maximum number of complaints before blocking emails',
+          default: 0,
+          env: 'BOUNCES_COMPLAINT_MAX'
+        }
+      },
+      hard: {
+        duration: {
+          doc: 'Time until a hard bounce is no longer counted',
+          default: '1 year',
+          format: 'duration',
+          env: 'BOUNCES_HARD_DURATION'
+        },
+        max: {
+          doc: 'Maximum number of hard bounces before blocking emails',
+          default: 0,
+          env: 'BOUNCES_HARD_MAX'
+        }
+      },
+      soft: {
+        duration: {
+          doc: 'Time until a soft bounce is no longer counted',
+          default: '1 week',
+          format: 'duration',
+          env: 'BOUNCES_SOFT_DURATION'
+        },
+        max: {
+          doc: 'Maximum number of soft bounces before blocking emails',
+          default: 5,
+          env: 'BOUNCES_SOFT_MAX'
+        }
+      }
     }
   },
   maxEventLoopDelay: {
